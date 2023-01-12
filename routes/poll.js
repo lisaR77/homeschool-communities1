@@ -9,9 +9,10 @@ const nodemailer = require('nodemailer');
 
 app.get('/', async (req, res) => {
     try {
-        console.log(req.body)
-
-        console.log(req.clientIp)
+        // var macaddress = require('macaddress');
+        // macaddress.one(function (err, mac) {
+        //     console.log("Mac address for this host from irfan new: %s", mac);  
+        // });
         return res.status(200).send("ok")
     }
     catch (err) {
@@ -24,12 +25,13 @@ app.post('/', async (req, res) => {
     try {
         console.log(req.body)
         console.log(req.clientIp)
+        console.log(req.body)
         const { build_this } = req.body
-        const isAlreadyPolledResult = await Poll.findOne({ ipId: req.clientIp })
+        const isAlreadyPolledResult = await Poll.findOne({ ipId: req.body.ipId })
         console.log(isAlreadyPolledResult)
         console.log(flatten({ isAlreadyPolledResult, ...req.body }))
         if (isAlreadyPolledResult) {
-            const updatedRes = await Poll.findOneAndUpdate({ ipId: req.clientIp },
+            const updatedRes = await Poll.findOneAndUpdate({ ipId: req.body.ipId },
                 flatten({ isAlreadyPolledResult, ...req.body }), { new: true })
             let Response = [
                 {id: 1, check: 'I advocate for homeschool communities', status: updatedRes.homeschool_communities, keyName:'homeschool_communities'},
@@ -43,7 +45,7 @@ app.post('/', async (req, res) => {
             return res.status(201).send(Response)
         }
         else {
-            const newRec = new Poll({ ipId: req.clientIp, ...req.body })
+            const newRec = new Poll({ ipId: req.body.ipId, ...req.body })
             await newRec.save()
             let Response = [
                 {id: 1, check: 'I advocate for homeschool communities', status: newRec.homeschool_communities, keyName:'homeschool_communities'},

@@ -7,6 +7,7 @@ const poll = require('./routes/poll')
 var mongoose = require('mongoose')
 var cors = require('cors');
 const app = express()
+
 var corsOptions = {
     origin: ["https://home-communities.netlify.app", "http://localhost:3000", "https://b96d-103-193-18-5.ngrok.io" , "*"],
 }
@@ -17,6 +18,13 @@ app.use(express.json())
 const requestIp = require('request-ip');
 app.use(requestIp.mw())
 
+
+// const address = require('address');
+// console.log(address.interface('IPv4', 'eth1'));
+var macaddress = require('macaddress');
+macaddress.one(function (err, mac) {
+    console.log("Mac address for this host: %s", mac);  
+  });
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected Successfully'))
