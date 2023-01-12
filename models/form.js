@@ -13,16 +13,16 @@ const formOneSchema = new mongoose.Schema({
     company_name: {
         type: String,
         trim: true,
-        required: [true, ["company must have a name"]],
-        minlength: 3,
-        maxlength: 50,
+        // required: [true, ["company must have a name"]],
+        // minlength: 3,
+        // maxlength: 50,
     },
     contact_name: {
         type: String,
         trim: true,
-        required: [true, ["contact must have a name"]],
-        minlength: 3,
-        maxlength: 30,
+        // required: [true, ["contact must have a name"]],
+        // minlength: 3,
+        // maxlength: 30,
     },
     email: {
         type: String,
@@ -44,16 +44,12 @@ const formTwoSchema = new mongoose.Schema({
     company_name: {
         type: String,
         trim: true,
-        required: [true, ["company must have a name"]],
-        minlength: 3,
-        maxlength: 50,
+       
     },
     contact_name: {
         type: String,
         trim: true,
-        required: [true, ["contact must have a name"]],
-        minlength: 3,
-        maxlength: 30,
+        
     },
     email: {
         type: String,
@@ -107,8 +103,8 @@ function validateboth(input){
     const schema = Joi.object({
         commercial_builder: Joi.boolean(),
         home_builder: Joi.boolean(),
-        company_name: Joi.string().min(3).required(),
-        contact_name: Joi.string().min(3).required(),
+        company_name: Joi.string().allow(null,''),
+        contact_name: Joi.string().allow(null,''),
         email: Joi.string().email().required(),
         phone: Joi.string().optional().allow(null,'')
 
@@ -119,8 +115,8 @@ function validateboth(input){
 function validateSecond(input){
     const schema = Joi.object({
         realtor: Joi.boolean(),
-        company_name: Joi.string().min(3).required(),
-        contact_name: Joi.string().min(3).required(),
+        company_name: Joi.string().allow(null,''),
+        contact_name: Joi.string().allow(null,''),
         email: Joi.string()
         .email().required(),
         phone: Joi.string().allow(null,'')

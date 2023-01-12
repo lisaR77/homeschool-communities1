@@ -7,7 +7,11 @@ const poll = require('./routes/poll')
 var mongoose = require('mongoose')
 var cors = require('cors');
 const app = express()
-app.use(cors());
+var corsOptions = {
+    origin: ["https://home-communities.netlify.app", "http://localhost:3000", "https://b96d-103-193-18-5.ngrok.io" , "*"],
+}
+
+app.use(cors(corsOptions));
 app.use(express.json())
 
 const requestIp = require('request-ip');
@@ -15,12 +19,12 @@ app.use(requestIp.mw())
 
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => console.log('Connected Successfully'))
-.catch((err) => console.error('Not Connected', err));
+    .then(() => console.log('Connected Successfully'))
+    .catch((err) => console.error('Not Connected', err));
 
 
-app.use('/api/forms', cors(), forms)
-app.use('/api/poll', cors(), poll)
+app.use('/api/forms' , forms)
+app.use('/api/poll', poll)
 
 
 const port = process.env.PORT || 3000
