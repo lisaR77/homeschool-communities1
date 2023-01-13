@@ -15,17 +15,6 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json())
 
-const requestIp = require('request-ip');
-app.use(requestIp.mw())
-
-
-// const address = require('address');
-// console.log(address.interface('IPv4', 'eth1'));
-var macaddress = require('macaddress');
-macaddress.one(function (err, mac) {
-    console.log("Mac address for this host: %s", mac);  
-  });
-
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected Successfully'))
     .catch((err) => console.error('Not Connected', err));

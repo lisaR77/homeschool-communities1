@@ -7,20 +7,6 @@ var ObjectId = require('mongoose').Types.ObjectId;
 const nodemailer = require('nodemailer');
 
 
-app.get('/', async (req, res) => {
-    try {
-        // var macaddress = require('macaddress');
-        // macaddress.one(function (err, mac) {
-        //     console.log("Mac address for this host from irfan new: %s", mac);  
-        // });
-        return res.status(200).send("ok")
-    }
-    catch (err) {
-        return res.status(500).send({ message: "something went wrong" })
-    }
-
-})
-
 app.post('/', async (req, res) => {
     try {
         console.log(req.body)
@@ -58,7 +44,6 @@ app.post('/', async (req, res) => {
             ]
             return res.status(201).send(Response)
         }
-        console.log("this worked not worked")
     }
     catch (err) {
         console.log(err)

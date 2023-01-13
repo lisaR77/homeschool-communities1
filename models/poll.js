@@ -35,9 +35,4 @@ const pollSchema = new mongoose.Schema({
 
 
 
-
-
 exports.Poll = mongoose.model('poll', pollSchema);
-
-
-// exports.validate = validate
