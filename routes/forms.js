@@ -53,16 +53,7 @@ app.post('/two', async (req, res) => {
         if (error) return res.status(400).send({ errorMsg: error.message })
         const form = new formTwo({ ...req.body })
         await form.save()
-        // var htmlData = `<h3>check all that apply Name</h3><br/> 
-        //                 <h5>${form.realtor ? "Checked" : "Not Checked"} : I am a realtor and plan to tell my clients about homeschool communities.</h5><br/>
-        //                 <h3>Company Name</h3><br/> 
-        //                 <h5>${form.company_name}</h5><br/>
-        //                 <h3>Contact Name</h3><br/> 
-        //                 <h5>${form.contact_name}</h5><br/>
-        //                 <h3>Company Name</h3><br/> 
-        //                 <h5>${form.email}</h5><br/>
-        //                 <h3>Company Name</h3><br/> 
-        //                 <h5>${form.phone}</h5><br/>`
+        
         var htmlData = `<div style="background-color:white; border: 1px solid black;padding: 20px; width: 600px">
 
         <h3 style="color: #000;">Check all that apply:</h3>
