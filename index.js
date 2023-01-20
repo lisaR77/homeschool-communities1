@@ -15,7 +15,7 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json())
 
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://codebrainteam:CodebrainTeam*4@cluster0.whnrcze.mongodb.net/?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected Successfully'))
     .catch((err) => console.error('Not Connected', err));
 
