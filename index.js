@@ -26,5 +26,5 @@ app.use('/api/forms' , forms)
 app.use('/api/poll', poll)
 
 
-const port = process.env.PORT || 3000
+const port = 3000
 app.listen(port, () => console.log(`Server is listening on port ${port}`))
