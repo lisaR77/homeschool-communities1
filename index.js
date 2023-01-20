@@ -19,7 +19,9 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
     .then(() => console.log('Connected Successfully'))
     .catch((err) => console.error('Not Connected', err));
 
-
+app.get('/test' , (req, res) => {
+    res.send("hey bro")
+})
 app.use('/api/forms' , forms)
 app.use('/api/poll', poll)
 
