@@ -4,6 +4,7 @@ Joi.objectId = require('joi-objectid')(Joi)
 const express = require('express');
 const forms = require('./routes/forms')
 const poll = require('./routes/poll')
+const { TextEncoder, TextDecoder } = require("util");
 var mongoose = require('mongoose')
 var cors = require('cors');
 const app = express()
