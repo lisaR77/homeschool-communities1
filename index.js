@@ -22,8 +22,8 @@ mongoose.connect("mongodb+srv://codebrainteam:CodebrainTeam*4@cluster0.whnrcze.m
 app.get('/test' , (req, res) => {
     res.send("hey bro")
 })
-app.use('/api/forms' , forms)
-app.use('/api/poll', poll)
+// app.use('/api/forms' , forms)
+// app.use('/api/poll', poll)
 
 
 const port = 3000
