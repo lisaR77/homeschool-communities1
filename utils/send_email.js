@@ -3,14 +3,15 @@ require('dotenv').config()
 
 // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    // port: 587,
-    // secure: false, // true for 465, false for other ports
+    host: "smtp.office365.com",  
+    secureConnection: true,
+    port: 587,
     auth: {
-        user: 'zain.techling@gmail.com', // generated ethereal user
-        pass: process.env.EMAIL_ACCESS_CODE // generated ethereal password
+        user: 'lisa@homeschoolcommunities.org', // generated ethereal user
+        pass: 'lisa_12345' // generated ethereal password
+    },
+    tls: {
+        ciphers:'SSLv3'
     }
 });
 

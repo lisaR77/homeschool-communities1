@@ -28,7 +28,7 @@ app.post('/one', async (req, res) => {
         
         </div>`
         let mail = {
-            from: 'zain.techling@gmail.com', // sender address
+            from: 'lisa@homeschoolcommunities.org', // sender address
             to: process.env.SEND_EMAIL_TO,// list of receivers
             subject: 'Home builder form', // Subject line
             text: `no html ?`, // plain text body
@@ -67,7 +67,7 @@ app.post('/two', async (req, res) => {
         
         </div>`
         let mail = {
-            from: 'zain.techling@gmail.com', // sender address
+            from: 'lisa@homeschoolcommunities.org', // sender address
             to: process.env.SEND_EMAIL_TO,// list of receivers
             subject: 'gasvasj 1st✔', // Subject line
             text: `Hasbcahv awjhbvabdv ${form.email}?`, // plain text body
@@ -107,7 +107,7 @@ app.post('/three', async (req, res) => {
         
                         </div>`
         let mail = {
-            from: 'zain.techling@gmail.com', // sender address
+            from: 'lisa@homeschoolcommunities.org', // sender address
             to: process.env.SEND_EMAIL_TO,// list of receivers
             subject: 'gasvasj ✔', // Subject line
             text: `Hasbcahv awjhbvabdv ${form.email}?`, // plain text body
