@@ -10,7 +10,7 @@ var cors = require('cors');
 const app = express()
 
 var corsOptions = {
-    origin: ["https://home-communities.netlify.app", "http://localhost:3000", "https://b96d-103-193-18-5.ngrok.io" , "*"],
+    origin: ["https://home-communities.netlify.app", "http://localhost:3000", "https://www.homeschoolcommunities.org" ,"http://www.homeschoolcommunities.org" , "http://68.178.207.95" , "https://68.178.207.95", "http://homeschoolcommunities.org", "https://homeschoolcommunities.org",  "*"],
 }
 
 app.use(cors(corsOptions));

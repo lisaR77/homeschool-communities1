@@ -9,13 +9,10 @@ const nodemailer = require('nodemailer');
 
 app.post('/', async (req, res) => {
     try {
-        console.log(req.body)
-        console.log(req.clientIp)
-        console.log(req.body)
         const { build_this } = req.body
         const isAlreadyPolledResult = await Poll.findOne({ ipId: req.body.ipId })
-        console.log(isAlreadyPolledResult)
-        console.log(flatten({ isAlreadyPolledResult, ...req.body }))
+        // console.log(isAlreadyPolledResult)
+        // console.log(flatten({ isAlreadyPolledResult, ...req.body }))
         if (isAlreadyPolledResult) {
             const updatedRes = await Poll.findOneAndUpdate({ ipId: req.body.ipId },
                 flatten({ isAlreadyPolledResult, ...req.body }), { new: true })
@@ -46,7 +43,7 @@ app.post('/', async (req, res) => {
         }
     }
     catch (err) {
-        console.log(err)
+        // console.log(err)
         return res.status(500).send({ message: "something went wrong" })
     }
 
